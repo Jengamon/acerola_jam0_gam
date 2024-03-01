@@ -19,3 +19,9 @@ stg commit
 
 We don't use git directly, b/c git is more of a distribution mechanism
 for this project than a VCS
+
+## Install some stuff
+
+```sh
+cargo install simple-web-server
+```

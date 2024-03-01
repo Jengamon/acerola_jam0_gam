@@ -1,8 +1,25 @@
 build-web:
 	cargo +nightly build -Zbuild-std --target wasm32-unknown-emscripten
 
+build-web-release:
+	cargo +nightly build -Zbuild-std --target wasm32-unknown-emscripten --release
+
+build-mac lib: build-mac-arm build-mac-intel
+	mkdir -p target/universal-apple-darwin/debug
+	lipo -create target/aarch64-apple-darwin/debug/lib{{lib}}.dylib target/x86_64-apple-darwin/debug/lib{{lib}}.dylib -output target/universal-apple-darwin/debug/lib{{lib}}.dylib
+
 build-mac-arm:
 	cargo build --target aarch64-apple-darwin
 
 build-mac-intel:
 	cargo build --target x86_64-apple-darwin
+
+build-mac-release lib: build-mac-arm-release build-mac-intel-release
+	mkdir -p target/universal-apple-darwin/release
+	lipo -create target/aarch64-apple-darwin/release/lib{{lib}}.dylib target/x86_64-apple-darwin/release/lib{{lib}}.dylib -output target/universal-apple-darwin/release/lib{{lib}}.dylib
+
+build-mac-arm-release:
+	cargo build --target aarch64-apple-darwin --release
+
+build-mac-intel-release:
+	cargo build --target x86_64-apple-darwin --release

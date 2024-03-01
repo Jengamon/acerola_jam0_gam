@@ -7,5 +7,7 @@ reloadable = true
 [libraries]
 web.debug.wasm32 = "res://../rust/target/wasm32-unknown-emscripten/debug/hello_world.wasm"
 web.release.wasm32 = "res://../rust/target/wasm32-unknown-emscripten/release/hello_world.wasm"
+macos.debug = "res://../rust/target/universal-apple-darwin/debug/libhello_world.dylib"
+macos.release = "res://../rust/target/universal-apple-darwin/release/libhello_world.dylib"
 macos.debug.arm64 = "res://../rust/target/aarch64-apple-darwin/debug/libhello_world.dylib"
 macos.release.arm64 = "res://../rust/target/aarch64-apple-darwin/release/libhello_world.dylib"

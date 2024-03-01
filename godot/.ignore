@@ -2,3 +2,4 @@ artefacts/*
 !artefacts/.keep
 .godot/
 .DS_Store
+exports
