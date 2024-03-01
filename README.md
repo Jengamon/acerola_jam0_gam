@@ -25,3 +25,5 @@ for this project than a VCS
 ```sh
 cargo install simple-web-server
 ```
+
+Reference https://github.com/godot-rust/gdext/issues/438#issuecomment-1822177121 to build the Rust code for web.
