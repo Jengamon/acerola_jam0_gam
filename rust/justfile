@@ -1,0 +1,8 @@
+build-web:
+	cargo +nightly build -Zbuild-std --target wasm32-unknown-emscripten
+
+build-mac-arm:
+	cargo build --target aarch64-apple-darwin
+
+build-mac-intel:
+	cargo build --target x86_64-apple-darwin
