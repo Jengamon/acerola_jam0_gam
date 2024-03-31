@@ -1,0 +1,2 @@
+run:
+    cargo watch -w../src -s "trunk serve --address 0.0.0.0"

@@ -1,0 +1,8 @@
+{
+	"package": "demo_site",
+	"version": "0.1.0",
+	"private": true,
+	"devDependencies": {
+		"daisyui": "^4.7.2"
+	}
+}

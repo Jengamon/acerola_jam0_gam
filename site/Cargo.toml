@@ -1,0 +1,12 @@
+[package]
+name = "demo_site"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+console_error_panic_hook = "0.1.7"
+leptos = { version = "0.6.8", features = ["csr"] }
+leptos-use = "0.10.3"
+phosphor-leptos = { version = "0.3.1", default-features = false, features = ["media"] }

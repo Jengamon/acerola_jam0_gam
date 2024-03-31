@@ -1,0 +1,80 @@
+[package]
+name = "acelr_gam0"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+# Enable a small amount of optimization in debug mode
+[profile.dev]
+opt-level = 1
+
+# Enable high optimizations for dependencies (incl. Bevy), but not for our code:
+[profile.dev.package."*"]
+opt-level = 3
+
+[dependencies]
+bevy_egui = "0.25"
+bevy_smooth_pixel_camera = "0.3"
+leafwing-input-manager = { version = "0.13", features = ["egui"] }
+bevy_ecs_ldtk = { version = "0.9" }
+bevy_tweening = "0.10"
+seldom_state = { version = "0.10", features = ["leafwing_input"] }
+ulid = "1.1.2"
+rand = "0.8.5"
+bevy = { version = "0.13", default-features = false, features = [
+    "animation",
+    "bevy_asset",
+    "bevy_gilrs",
+    "bevy_scene",
+    "bevy_winit",
+    "bevy_core_pipeline",
+    "bevy_pbr",
+    "bevy_gltf",
+    "bevy_render",
+    "bevy_sprite",
+    "bevy_text",
+    "bevy_ui",
+    "multi-threaded",
+    "png",
+    "hdr",
+    "x11",
+    "bevy_gizmos",
+    "tonemapping_luts",
+    "default_font",
+    "bevy_debug_stepping",
+] }
+bevy_kira_audio = { version = "0.19", features = ["flac"] }
+kira = { version = "0.8" }
+bevy_asset_loader = { version = "0.20", features = ["2d", "progress_tracking", "standard_dynamic_assets"] }
+webbrowser = { version = "0.8", features = ["hardened"] }
+iyes_progress = "0.11.0"
+bevy_prototype_lyon = "0.11.0"
+moonshine-spawn = "0.1.2"
+bevy_async_task = "0.1"
+# bevy_hanabi = "0.10.0" if only it supported WASM...
+# bevy_particle_systems = "0.12.0"
+fundsp = "0.16"
+palette = "0.7.5"
+thiserror = "1.0.57"
+egui_plot = "0.26"
+ron = "0.8.1"
+serde = { version = "1.0.197", features = ["derive"] }
+generic-array = "1.0.0"
+big-brain = { version="0.19.0", git = "https://github.com/zkat/big-brain.git" }
+mint = "0.5.9"
+
+[features]
+webgl = ["bevy/webgl2"]
+webgpu = ["bevy/webgpu"]
+
+[patch.crates-io]
+bevy_ecs_tilemap = { git = "https://github.com/StarArawn/bevy_ecs_tilemap/" }
+bevy_ecs_ldtk = { git = "https://github.com/theshortcut/bevy_ecs_ldtk", branch = "bevy-0.13" }
+bevy_smooth_pixel_camera = { git = "https://github.com/Jengamon/bevy_smooth_pixel_camera" }
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+getrandom = { version = "0.2.12", features = ["js"] }
+
+[dev-dependencies]
+assert2 = "0.3.14"

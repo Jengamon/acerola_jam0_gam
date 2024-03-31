@@ -1,0 +1,10 @@
+({
+    "debug_sfxr": Files(
+        paths: [
+            "noisy.sfxr.ron",
+            "click.sfxr.ron",
+            "big_click.sfxr.ron",
+            "forever.sfxr.ron",
+        ]
+    )
+})

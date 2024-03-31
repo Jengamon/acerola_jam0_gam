@@ -1,0 +1,6 @@
+[language-server.rust-analyzer.config]
+procMacro = { ignored = { leptos_macro = [
+  "component",
+  "server",
+]}}
+rustfmt.overrideCommand = ["leptosfmt", "--rustfmt", "--stdin"]

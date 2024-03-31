@@ -1,0 +1,4 @@
+PinkExpStereo(
+    amp: 0.5,
+    f: 200.0,
+)

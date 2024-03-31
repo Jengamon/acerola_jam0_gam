@@ -1,0 +1,26 @@
+[target.x86_64-unknown-linux-gnu]
+linker = "clang"
+rustflags = [
+    "-Clink-arg=-fuse-ld=lld", # Use LLD Linker
+]
+
+# NOTE: you must install [Mach-O LLD Port](https://lld.llvm.org/MachO/index.html) on mac. you can easily do this by installing llvm which includes lld with the "brew" package manager:
+# `brew install llvm`
+[target.x86_64-apple-darwin]
+rustflags = [
+    "-Clink-arg=-fuse-ld=/usr/local/opt/llvm/bin/ld64.lld", # Use LLD Linker
+]
+
+[target.aarch64-apple-darwin]
+rustflags = [
+    "-Clink-arg=-fuse-ld=/opt/homebrew/opt/llvm/bin/ld64.lld", # Use LLD Linker
+]
+
+# This needs "rustup component add llvm-tools(-preview)" and maybe nightly?
+[target.x86_64-pc-windows-msvc]
+linker = "rust-lld.exe"            # Use LLD Linker
+rustflags = ["-Zshare-generics=n"]
+
+[target.wasm32-unknown-unknown]
+# Uncomment to use WebGPU
+# rustflags = [ "--cfg=web_sys_unstable_apis" ]

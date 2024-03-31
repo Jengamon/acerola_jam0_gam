@@ -1,0 +1,4 @@
+.DS_Store
+.pijul/
+target*/
+dist/
